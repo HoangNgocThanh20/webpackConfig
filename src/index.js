@@ -1,19 +1,7 @@
-import _ from "lodash";
-import "./style.css";
-import SubElement from "./SubElement";
-
-function component() {
-  const mainDiv = document.createElement("div");
-
-  const element = document.createElement("div");
-  element.innerHTML = _.join(["Hello", "webpack 1"], " ");
-  element.classList.add("hello");
-
-  const subElement = SubElement();
-  mainDiv.appendChild(element);
-  mainDiv.appendChild(subElement);
-
-  return mainDiv;
-}
-
-document.body.appendChild(component());
+import { run } from "./app/app";
+import "./main.scss";
+import { AlertService } from "./app/alert.service";
+import { ComponentService } from "./app/component.service";
+const alertService = new AlertService();
+const componentService = new ComponentService();
+run(alertService, componentService);
